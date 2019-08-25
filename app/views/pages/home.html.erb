@@ -37,17 +37,37 @@
           <strong>Created at:</strong>
           <%= @posts.first.created_at.strftime('%D - %T') %>
         </p>
-        
-        
-        
-        
-        
-        
-        
+
         <%= content_tag :div, "", id: "calories_chart", data: {posts: calories_char_data} %>
-        
-        
-        
+
+        <BR>                
+        <p class="buttons">
+          <%= link_to(share_path, class: "button") do %>
+          <span class="icon">
+              <i class="fas fa-share-alt"></i>
+            </span>
+            <span>Share</span>
+          <% end %>
+          <a class="button is-primary">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+            <span>Twitter</span>
+          </a>
+          <a class="button is-success">
+            <span class="icon is-small">
+              <i class="fas fa-check"></i>
+            </span>
+            <span>Save</span>
+          </a>
+          <a class="button is-danger is-outlined">
+            <span>Delete</span>
+            <span class="icon is-small">
+              <i class="fas fa-times"></i>
+            </span>
+          </a>
+        </p>
+
       </p>
     </div>
   </section>

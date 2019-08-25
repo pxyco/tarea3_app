@@ -1,0 +1,40 @@
+<div class="columns">
+      <div class="column is-half is-offset-one-quarter big-margin-bottom">
+        <div class="card">
+          <div class="card-content">
+            <%= yield %>  
+          
+
+<h2 class="title is-2">Share to:</h2>
+<hr>
+
+
+<%= form_with(url: "/share", method: "post") do |f| %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+  <div class="field">
+  <%= f.label :email, class: "label" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Send", class: "button is-primary is-rounded is-fullwidth" %>
+  </div>
+<% end %>
+
+<%= form_for(current_user, as: current_user, url: session_path(current_user)) do |f| %>
+  <div class="field">
+    <%= f.label :email, class: "label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send", class: "button is-primary is-rounded is-fullwidth" %>
+  </div>
+<% end %>
+
+
+</div>
+        </div>
+      </div>
+    </div>
