@@ -17,8 +17,37 @@
         My first website with <strong>Bulma</strong>!
         <BR><BR>
         <%= link_to 'Sign up', new_user_registration_path, class: "button is-link is-rounded" %>
+        <p>
+          <strong>User:</strong>
+          <%= @posts.first.user.name %>
+        </p>
+        <p>
+          <strong>Calories earned:</strong>
+          <%= @posts.first.calories_earned %>
+        </p>
+        <p>
+          <strong>Calories lost:</strong>
+          <%= @posts.first.calories_lost %>
+        </p>
+        <p>
+          <strong>Text:</strong>
+          <%= @posts.first.text %>
+        </p>
+        <p>
+          <strong>Created at:</strong>
+          <%= @posts.first.created_at.strftime('%D - %T') %>
+        </p>
         
-        <div id="annual"></div>
+        
+        
+        
+        
+        
+        
+        <%= content_tag :div, "", id: "calories_chart", data: {posts: calories_char_data} %>
+        
+        
+        
       </p>
     </div>
   </section>

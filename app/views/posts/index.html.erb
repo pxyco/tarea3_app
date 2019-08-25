@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th><abbr title="Calories earned">CE</abbr></th>
+      <th><abbr title="Calories lost">CL</abbr></th>
+      <th>Text</th>
+      <th>Created_at</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.user.name %></td>
+        <td><%= post.calories_earned %></td>
+        <td><%= post.calories_lost %></td>
+        <td><%= post.text %></td>
+        <td><%= post.created_at.strftime('%D - %T') %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
