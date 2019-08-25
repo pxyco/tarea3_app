@@ -4,14 +4,14 @@
 
 jQuery ->
   Morris.Line
-  element: 'myfirstchart'
-  data: [
-    {year: '2008', value: 20}
-    {year: '2009', value: 10}
-    {year: '2010', value: 5}
-    {year: '2011', value: 5}
-    {year: '2012', value: 20}
-  ]
-  xkey: 'year',
-  ykeys: ['value'],
-  labels: ['Value']
+    element: 'annual'
+    data: [
+      {y: '2012', a: 20}
+      {y: '2011', a: 10}
+      {y: '2010', a: 5}
+      {y: '2009', a: 5}
+      {y: '2008', a: 20}
+    ]
+    xkey: 'y',
+    ykeys: ['a'],
+    labels: ['Series A']
