@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   validates :text, presence: true, length: { maximum: 140 }
+  paginates_per 10
   
   def self.total_grouped_by_day(start)
     calories = where(created_at: start.beginning_of_day..Time.zone.now)

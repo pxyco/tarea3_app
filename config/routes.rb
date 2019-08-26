@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
   resources :posts
   resources :pages
-  root to:  'pages#home'
+  root to:  'static_pages#home'
   get       '/share',    to: 'pages#show'
   # post      '/share',    to: 'pages#create'
   

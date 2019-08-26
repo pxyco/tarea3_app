@@ -19,6 +19,11 @@
   <strong>Text:</strong>
   <%= @post.text %>
 </p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @post.created_at.strftime('%d %B %Y - %T') %>
+</p>
   
   
   

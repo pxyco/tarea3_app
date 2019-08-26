@@ -5,8 +5,9 @@ gem 'rails',        '5.1.6'
 
 gem "bulma-rails", "~> 0.7.5"
 gem 'devise'
-gem 'puma',         '3.9.1'
+gem 'kaminari'
 
+gem 'puma',         '3.9.1'
 gem 'bcrypt',         '3.1.12'
 gem 'faker',          '1.7.3'
 gem 'sass-rails',   '5.0.6'

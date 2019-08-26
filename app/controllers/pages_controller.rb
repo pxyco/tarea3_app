@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user! , only: [:home]
-  def home
-    @posts = current_user.posts
+  before_action :authenticate_user!
+  def index
+    @user = current_user
+    @posts = current_user.posts.page(params[:page])
   end
   
   def create
@@ -11,8 +12,7 @@ class PagesController < ApplicationController
     @user.create_share_digest
     puts @user.share_token
     UserMailer.share_calories(email, current_user).deliver_now
-    # UserMailer.share_calories(email, current_user).deliver_now
-    # user.send_share_email
+    redirect_to pages_path, :alert => "Email with share link sent to your friend"
   end
   
   def edit

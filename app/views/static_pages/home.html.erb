@@ -1,0 +1,13 @@
+<h1 class="title is-1 has-text-centered">Welcome to the Calories App</h1>
+
+<p>Keep track of your daily calories</p>
+
+<BR>
+<div class="buttons">
+  <% if current_user %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "button is-primary is-rounded" %>
+  <% else %>
+    <%= link_to 'Sign up', new_user_registration_path, class: "button is-primary is-rounded" %>
+    <%= link_to 'Sign in', new_user_session_path, class: "button is-light" %>
+  <% end %>  
+</div>
