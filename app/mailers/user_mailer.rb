@@ -5,9 +5,10 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.share_calories.subject
   #
-  def share_calories
+  def share_calories(email, user)
+    @user = user
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: email, subject: "Calories data"
   end
 end

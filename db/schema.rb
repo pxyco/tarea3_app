@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190825025108) do
+ActiveRecord::Schema.define(version: 20190826165810) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "calories_earned"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20190825025108) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "share_token"
+    t.datetime "share_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
