@@ -2,4 +2,4 @@ User#share_calories
 
 <%= @greeting %>, find me in app/views/user_mailer/share_calories.text.erb
 
-Enlace: <%= edit_page_url(@user.share_token) %>
+Enlace: <%= edit_page_url(@user.share_token_plain, email: @user.email) %>

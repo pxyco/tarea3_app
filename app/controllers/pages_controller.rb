@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:edit]
   def index
     @user = current_user
     @search = PostSearch.new(params[:search])
@@ -19,6 +19,11 @@ class PagesController < ApplicationController
   end
   
   def edit
-    @user = User.find_by_share_token!(params[:id])
+    puts "AQUIIIII"
+    email = params[:email]
+    puts email
+    share_token_digest = User.digest(params[:id])
+    puts share_token_digest
+    @user = User.find_by_email!(email)
   end
 end
