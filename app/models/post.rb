@@ -10,7 +10,7 @@ class Post < ApplicationRecord
     calories = calories.group("date(created_at)")
     calories = calories.select("created_at, sum(calories_earned) as total_calories_earned,
                                 sum(calories_lost) as total_calories_lost")
-    calories = calories.group_by { |c| c.created_at.to_date }
+    calories = calories.group_by { |c| c.created_at }
   end
     
 end
