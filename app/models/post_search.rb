@@ -4,7 +4,7 @@ class PostSearch
   def initialize(params)
     params ||= {}
     @date_from = parse_date(params[:date_from], 1.month.ago.to_date.to_s)
-    @date_to = parse_date(params[:date_to], Date.today.to_date.to_s)
+    @date_to = parse_date(params[:date_to], Date.tomorrow.to_date.to_s)
     @text = params[:text]
   end
   

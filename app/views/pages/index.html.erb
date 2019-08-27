@@ -1,5 +1,4 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-<p id="notice"><%= notice %></p>
 
 <h2 class = "title is-2">Hi, <%= @user.name %> </h2>
 
@@ -7,7 +6,7 @@
 <%= link_to 'Add register', new_post_path, class: "button is-danger" %>
 </div>
 
-<h3 class = "title is-3">Your registers: </h3>
+<h3 class = "title is-3">Your registers: (<%= @count %>) </h3>
 
 <div class="row">
   <%= form_tag pages_path, method: :get do %>
@@ -17,12 +16,11 @@
     <%= date_field_tag 'search[date_to]', @search.date_to %>
     <%= label_tag(@search.text, "contains: ") %>
     <%= text_field_tag 'search[text]', @search.text %>
-
-      <%= submit_tag "Search", class: "button is-primary is-rounded" %>
-
+    <%= submit_tag "Search", class: "button is-primary is-rounded" %>
   <% end %>
-  
 </div>
+
+<BR>
 
 <table class="table">
   <thead>
@@ -53,7 +51,7 @@
 <br>
 <br>
 
-<h3 class = "title is-3">Your daily records: </h3>
+<h3 class = "title is-3">Your daily records: <em class = "title is-6">Refresh (press F5) to show the graph</em></h3>
 <%= content_tag :div, "", id: "calories_chart", data: {posts: calories_char_data} %>
 
 <BR>

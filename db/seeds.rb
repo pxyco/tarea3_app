@@ -12,7 +12,7 @@ User.create!(name:  "Andres Valderrama",
              password_confirmation: "123456",
              created_at: Time.zone.now-1.month)
 
-5.times do |n|
+50.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -24,7 +24,7 @@ User.create!(name:  "Andres Valderrama",
 end
 
 users = User.all
-400.times do |n|
+100.times do |n|
   calories_earned = rand(0..500)
   calories_lost = rand(0..500)
   text = Faker::Lorem.sentence(5)

@@ -12,14 +12,22 @@
   </head>
 
   <body>
-    <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
     <%= render 'layouts/header' %>
     <div class="columns">
       <div class="column is-half is-offset-one-quarter big-margin-bottom">
         <div class="card">
           <div class="card-content">
+            
+            <% flash.each do |message_type, message| 
+              if message_type == "alert"
+                 message_type = "danger"
+              end 
+              if message_type == "notice"
+                 message_type = "success"
+              end %>
+              <div class="notification is-<%= message_type %>"><%= message %></div>
+            <% end %>
+            
             <%= yield %>  
           </div>
         </div>

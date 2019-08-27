@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190826165810) do
+ActiveRecord::Schema.define(version: 20190827035753) do
 
   create_table "posts", force: :cascade do |t|
-    t.integer "calories_earned"
-    t.integer "calories_lost"
+    t.integer "calories_earned", default: 0
+    t.integer "calories_lost", default: 0
     t.string "text"
     t.integer "user_id"
     t.datetime "created_at", null: false
