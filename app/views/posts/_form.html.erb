@@ -17,21 +17,21 @@
 
 
   <div class="field">
-    <%= form.label :calories_earned %>
-    <%= form.text_field :calories_earned, id: :post_user_id %>
+    <%= form.label :calories_earned, class: "label" %>
+    <%= form.text_field :calories_earned, id: :post_user_id, class: "input" %>
+  </div>
+  
+  <div class="field", class: "label">
+    <%= form.label :calories_lost, class: "label" %>
+    <%= form.text_field :calories_lost, id: :post_user_id, class: "input" %>
   </div>
   
   <div class="field">
-    <%= form.label :calories_lost %>
-    <%= form.text_field :calories_lost, id: :post_user_id %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text, id: :post_user_id %>
+    <%= form.label :text, class: "label" %>
+    <%= form.text_area :text, id: :post_user_id, class: "input" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create", class: "button is-primary is-rounded is-fullwidth" %>
   </div>
 <% end %>

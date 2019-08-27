@@ -1,6 +1,11 @@
 <h2 class = "title is-2">Editing register</h2>
+<hr>
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', pages_path %>
+<div class="has-text-centered" >
+  <div class="big-margin-top" >
+    <%= link_to 'Show', @post %> |
+    <%= link_to 'Back', pages_path %>
+  </div>
+</div>

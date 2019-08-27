@@ -1,32 +1,39 @@
 <h2 class = "title is-2">Register</h2>
+<hr>
+
 <p>
-  <strong>User:</strong>
+  <span class = "label">User</span>
   <%= @post.user.name %>
 </p>
 
 <p>
-  <strong>Calories earned:</strong>
-  <%= @post.calories_earned %>
+  <span class = "label">Calories earned</span>
+  <span class="tag is-link"><%= @post.calories_earned %></span>
 </p>
 
 <p>
-  <strong>Calories lost:</strong>
-  <%= @post.calories_lost %>
+  <span class = "label">Calories lost</span>
+  <span class="tag is-danger"><%= @post.calories_lost %></span>
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @post.text %>
+  <span class = "label">Message</span>
+  <div class="box">
+    <%= @post.text %>
+  </div>
 </p>
 
 <p>
-  <strong>Hora:</strong>
+  <span class = "label">Hora</span>
   <%= @post.created_at.strftime('%d %B %Y - %T') %>
 </p>
   
   
   
 
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', pages_path %>
+<div class="has-text-centered" >
+  <div class="big-margin-top" >
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Back', pages_path %>
+  </div>
+</div>
