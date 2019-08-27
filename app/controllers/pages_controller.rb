@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   before_action :authenticate_user!
   def index
     @user = current_user
-    @posts = current_user.posts.page(params[:page])
+    @search = PostSearch.new(params[:search])
+    @posts = @search.scope(current_user.id).page(params[:page])
   end
   
   def create

@@ -9,6 +9,21 @@
 
 <h3 class = "title is-3">Your registers: </h3>
 
+<div class="row">
+  <%= form_tag pages_path, method: :get do %>
+    <%= label_tag(@search.date_from, "From: ") %>
+    <%= date_field_tag 'search[date_from]', @search.date_from %>
+    <%= label_tag(@search.date_from, "to: ") %>
+    <%= date_field_tag 'search[date_to]', @search.date_to %>
+    <%= label_tag(@search.text, "contains: ") %>
+    <%= text_field_tag 'search[text]', @search.text %>
+
+      <%= submit_tag "Search", class: "button is-primary is-rounded" %>
+
+  <% end %>
+  
+</div>
+
 <table class="table">
   <thead>
     <tr>
