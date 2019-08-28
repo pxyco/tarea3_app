@@ -6,24 +6,28 @@ class PagesController < ApplicationController
     @posts = @search.scope(current_user.id)
     @count = @posts.count
     @posts = @search.scope(current_user.id).page(params[:page])
+    
+    if params[:refresh].nil? 
+      @refresh = "Off"
+    else
+      @refresh = params[:refresh]
+    end
   end
   
   def create
+    redirect_to root_path
     @user = current_user
     email=params[:email]
-    puts email
     @user.create_share_digest
-    puts @user.share_token
     UserMailer.share_calories(email, current_user).deliver_now
-    redirect_to pages_path, flash[:success]  => "Email with share link sent to your friend"
+    redirect_to pages_path
   end
   
   def edit
-    puts "AQUIIIII"
-    email = params[:email]
-    puts email
-    share_token_digest = User.digest(params[:id])
+    id = params[:id]
+    puts id
+    share_token_digest = Digest::MD5.hexdigest(params[:id])
     puts share_token_digest
-    @user = User.find_by_email!(email)
+    @user = User.find_by_share_token!(share_token_digest)
   end
 end

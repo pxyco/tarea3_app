@@ -1,5 +1,6 @@
-User#share_calories
+CALapp
 
-<%= @greeting %>, find me in app/views/user_mailer/share_calories.text.erb
+<%= @greeting %>, your friend <b><%= @user.name %></b> wants to share his daily workout with you.
 
-Enlace: <%= edit_page_url(@user.share_token_plain, email: @user.email) %>
+Look out for his calories graph here:
+<%= edit_page_url(@user.share_token_plain) %>

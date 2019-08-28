@@ -1,5 +1,13 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
+<% if @refresh == "On" %>
+  <script>
+    setTimeout(function(){
+      location.reload();
+    },10000); // 10000 milliseconds means 3 seconds.
+  </script>    
+<% end %>
+    
 <h2 class = "title is-2">Hi, <%= @user.name %> </h2>
 
 <div class="buttons">
@@ -51,7 +59,8 @@
 <br>
 <br>
 
-<h3 class = "title is-3">Your daily records: <em class = "title is-6">Refresh (press F5) to show the graph</em></h3>
+<h3 class = "title is-3">Your daily records: </h3>
+<em class = "title is-6">Last month</em>
 <%= content_tag :div, "", id: "calories_chart", data: {posts: calories_char_data} 
 %>
 
@@ -65,3 +74,13 @@
   <% end %>
 </div>
 
+<%= form_tag pages_path, method: :get do %>
+  <% if @refresh == "Off" %>
+    <%= hidden_field_tag(:refresh, "On") %>
+    <%= submit_tag "Auto-refresh every 10 seconds", class: "button is-primary is-rounded" %>
+  <% else %>
+    <%= hidden_field_tag(:refresh, "Off") %>
+    <%= submit_tag "Stop auto-refresh", class: "button is-primary is-rounded" %>
+      
+  <% end %>
+<% end %>

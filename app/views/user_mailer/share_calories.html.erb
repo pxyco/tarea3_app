@@ -1,7 +1,18 @@
-<h1>User#share_calories</h1>
-
-<p>
-  <%= @greeting %>, find me in app/views/user_mailer/share_calories.html.erb
-  
-  Enlace: <%= edit_page_url(@user.share_token_plain, email: @user.email) %>
-</p>
+ <div class="columns">
+  <div class="column is-half is-offset-one-quarter big-margin-bottom">
+    <div class="card">
+      <div class="card-content">
+        <h2 class = "title is-2"><span class="tag is-primary">#</span>  CALapp</h2>
+        <hr>
+        <p>
+          <%= @greeting %>, your friend <b><%= @user.name %></b> wants to share his daily workout with you.
+          
+          <BR><BR>
+          Look out for his calories graph here:
+          <%= edit_page_url(@user.share_token_plain) %>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

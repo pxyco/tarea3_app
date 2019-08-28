@@ -14,13 +14,6 @@ class User < ApplicationRecord
     
   end
   
-  # Returns the hash digest of the given string.
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
-  
   # Returns a random token.
   def User.new_token
     SecureRandom.urlsafe_base64
@@ -29,7 +22,7 @@ class User < ApplicationRecord
   # Sets the password reset attributes.
   def create_share_digest
     self.share_token_plain = User.new_token
-    update_attribute(:share_token,  User.digest(share_token_plain))
+    update_attribute(:share_token,  Digest::MD5.hexdigest(share_token_plain))
     update_attribute(:share_sent_at, Time.zone.now)
   end
 
